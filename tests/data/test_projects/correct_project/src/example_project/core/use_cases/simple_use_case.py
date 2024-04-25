@@ -1,10 +1,10 @@
-from tests.data.test_projects.correct_project.src.example_project.services.simple_service import (
-    SimpleService,
+from tests.data.test_projects.correct_project.src.example_project.core.services.simple_service import (
+    ISimpleService,
 )
 
 
 class SimpleUseCase:
-    def __init__(self, simple_service: SimpleService) -> None:
+    def __init__(self, simple_service: ISimpleService) -> None:
         self.simple_service = simple_service
 
     def execute(self):
