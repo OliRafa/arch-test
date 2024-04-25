@@ -108,3 +108,16 @@ def test_library_shouldnt_have_packages_without_modules_or_subpackages(
     )
 
     assert not docs_package
+
+
+def test_objects_should_have_its_parent_reference(correct_project: Path):
+    parser = PythonDependencyParser()
+    library = parser.parse(correct_project)
+
+    a_module = library.modules[0]
+
+    assert a_module.parent == library
+
+    a_package = library.modules[0]
+
+    assert a_package.parent == library

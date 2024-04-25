@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from pathlib import Path
 from typing import Optional
 
@@ -9,7 +11,8 @@ from arch_test.core.parsers.dependency import (
 
 
 class Module:
-    def __init__(self, path: Path) -> None:
+    def __init__(self, path: Path, parent: "Library" | "Package") -> None:
+        self.parent = parent
         self.path = path
 
     @property

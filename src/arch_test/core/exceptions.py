@@ -9,6 +9,6 @@ class PackageNotFoundError(Exception):
 class ModuleNotFoundError(Exception):
     "Raised when a Module wasn't found."
 
-    def __init__(self, package_name: str, *args: object) -> None:
+    def __init__(self, module_name: str, *args: object) -> None:
         super().__init__(*args)
-        self.message = f"Module {package_name} wasn't found."
+        self.message = f"Module {module_name} wasn't found."

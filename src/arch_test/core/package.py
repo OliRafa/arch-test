@@ -7,10 +7,11 @@ from arch_test.core.package_iterator import PackageIterator
 
 
 class Package(PackageIterator):
-    def __init__(self, path: Path) -> None:
+    def __init__(self, path: Path, parent: "Library" | Package) -> None:
         self.path = path
         self.subpackages: list[Package] = []
         self.modules: list[Module] = []
+        self.parent = parent
 
     @property
     def name(self) -> str:
